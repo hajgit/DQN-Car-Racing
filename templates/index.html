@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CarRacing - Double DQN Live</title>
+    <style>
+        body { background: #0a0a0a; color: #00ffcc; text-align: center; font-family: 'Courier New', monospace; padding: 20px; }
+        h1 { margin-bottom: 20px; text-shadow: 0 0 10px #00ffcc; }
+        .video-box { border: 2px solid #00ffcc; border-radius: 8px; display: inline-block; overflow: hidden; box-shadow: 0 0 15px rgba(0, 255, 204, 0.5); }
+        img { display: block; }
+        .footer { margin-top: 15px; color: #666; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <h1>🚀 Double DQN - CarRacing-v3 (Live)</h1>
+    <div class="video-box">
+        <img src="{{ url_for('video_feed') }}" alt="Agent playing">
+    </div>
+    <div class="footer">
+        Agent autonome - Mise à jour toutes les 5 secondes
+    </div>
+</body>
+</html>

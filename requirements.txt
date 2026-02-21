@@ -1,0 +1,7 @@
+gymnasium[box2d]
+torch
+torchrl
+tensordict
+numpy
+opencv-python
+flask
