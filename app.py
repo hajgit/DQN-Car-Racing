@@ -1,4 +1,4 @@
-# app.py
+
 import os
 import cv2
 from flask import Flask, render_template_string, Response
@@ -8,7 +8,7 @@ from DQN_model import Agent, SkipFrame
 
 app = Flask(__name__)
 
-# 🔑 Chemin fixe vers TON modèle
+# Chemin fixe vers TON modèle
 MODEL_PATH = "./training/saved_models/DQN_1600ep_FAST_final_254790.pt"
 
 def generate_stream():
@@ -28,7 +28,7 @@ def generate_stream():
         load_model=os.path.basename(MODEL_PATH)
     )
     agent.epsilon = 0  # Mode évaluation pur
-    print(f"✅ Modèle chargé : {MODEL_PATH}")
+    print(f"Modèle chargé : {MODEL_PATH}")
 
     episode_reward = 0
 
@@ -55,7 +55,7 @@ def generate_stream():
                 yield (b'--frame\r\nContent-Type: image/jpeg\r\n\r\n' + buffer.tobytes() + b'\r\n')
             
             if done or truncated:
-                print(f"✅ Épisode terminé | Score final: {episode_reward:.1f}")
+                print(f"Épisode terminé | Score final: {episode_reward:.1f}")
                 episode_reward = 0
                 state, _ = env.reset()
 
@@ -94,9 +94,9 @@ def video_feed():
 if __name__ == '__main__':
     # Vérifier que le modèle existe
     if not os.path.exists(MODEL_PATH):
-        raise FileNotFoundError(f"❌ Modèle introuvable : {os.path.abspath(MODEL_PATH)}")
+        raise FileNotFoundError(f" Modèle introuvable : {os.path.abspath(MODEL_PATH)}")
     
-    print("🌐 Démarrage de l'interface web...")
-    print(f"📁 Modèle utilisé : {MODEL_PATH}")
-    print("➡️ Ouvrez http://localhost:5000 dans votre navigateur")
+    print(" Démarrage de l'interface web...")
+    print(f" Modèle utilisé : {MODEL_PATH}")
+    print(" Ouvrez http://localhost:5000 dans votre navigateur")
     app.run(host='0.0.0.0', port=5000, threaded=True)
