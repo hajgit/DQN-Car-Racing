@@ -1,4 +1,4 @@
-# DQN_model.py
+
 import os
 import torch
 import csv
@@ -156,7 +156,7 @@ class Agent:
             'action_number': self.act_taken,
             'epsilon': self.epsilon
         }, path)
-        print(f"✅ Saved: {path}")
+        print(f" Saved: {path}")
 
     def write_log(self, dates, times, rewards, lengths, losses, epsilons, filename='log.csv'):
         os.makedirs(self.log_dir, exist_ok=True)
